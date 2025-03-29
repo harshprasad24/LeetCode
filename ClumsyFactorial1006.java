@@ -10,7 +10,7 @@ public class ClumsyFactorial1006 {
         if(n==4) return n*(n-1)/(n-2)+(n-3)-(n-4) ;
         int ans = n * (n - 1) / (n - 2) + (n - 3); 
         n -= 4;
-        
+         
         while (n >= 4) {
             ans -= (n * (n - 1) / (n - 2));
             ans += (n - 3);
