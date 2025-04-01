@@ -6,7 +6,7 @@ public class lc_1299 {
             System.out.print(ans[i]);
         }
     }
-    public static int[] replaceElements(int[] arr) {
+    public static int[] replaceElements(int[] arr) { 
         int maxright[] = new int [arr.length];
         maxright[arr.length-1]=-1;
         int maxSoFar = arr[arr.length - 1];
