@@ -1,21 +1,20 @@
 import java.util.Arrays;
 
-public class SingleNumber136 {
+public class SingleNumber137 {
     public static void main(String[] args) {
-        int nums[] = {-1};
-        int k = singleNumber(nums);
-        System.out.print(k);
+        int nums[] = {2,2,3,2};
+        System.out.print(singleNumber(nums));
     }
     public static int singleNumber(int[] nums) {
-        int k=0;
         Arrays.sort(nums);
+        int k=0;
         while(k<nums.length-1){
             if(nums[k]==nums[k+1]){
-                k+=2;
+                k+=3;
             }else{
                 return nums[k];
             }
         }
-        return nums[k];
+        return nums[nums.length-1];
     }
 }
