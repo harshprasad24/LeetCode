@@ -1,28 +1,31 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Practice {
     public static void main(String[] args) {
-        String s ="abacbc";
-        System.out.println(areOccurrencesEqual(s)); 
+        String s = "leetcode";
+        ArrayList<String> wordDict = new ArrayList<>(Arrays.asList("leet", "code"));
+        System.out.println(wordBreak(s, wordDict));
     }
-    public static boolean areOccurrencesEqual(String s) {
-        int[] freq = new int[26];  
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            freq[c - 'a']++;
-        }   
 
-        int expected = 0;
-
-        for (int i = 0; i < freq.length; i++) {
-            int f = freq[i];
-            if(f>0){
-                if(expected == 0){
-                    expected =f;
-                }else if (f != expected) {
-                    return false;
+    public static boolean wordBreak(String s, List<String> wordDict) {
+        int j = 0;
+        while (j < s.length()) {
+            boolean matched = false;
+            for (String word : wordDict) {
+                int len = word.length();
+                if (j + len <= s.length() && s.substring(j, j + len).equals(word)) {
+                    j += len;
+                    matched = true;
+                    break; 
                 }
             }
+            if (!matched) {
+                return false; 
+            }
         }
-
         return true;
     }
 }
+
